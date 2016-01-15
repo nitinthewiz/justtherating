@@ -27,11 +27,19 @@ angular.module('starter', ['ionic'])
 {
 	$scope.searchmovie = 'no';
 	$scope.showloader = "no";
-	$scope.search = function()
-	{
+
+	$scope.postDataChange = function(){
+		console.log("here");
+		console.log($scope.input.yoursearch.length);
+		if ($scope.input.yoursearch.length >= 3){
+			$scope.search();
+		}
+	};
+
+	$scope.search = function(){
 		$scope.showloader = "yes";
 		//console.log('clicked');
-		Movies.get(document.getElementById('movie-title').value)
+		Movies.get($scope.input.yoursearch)
 		 .success(function(data) {
 			// console.log(data);
 			

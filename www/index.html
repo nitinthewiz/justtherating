@@ -25,7 +25,7 @@
 		<ion-header-bar class="bar-calm item-input-inset">
 			<label class="item-input-wrapper">
 				<i class="icon ion-ios-search placeholder-icon"></i>
-				<input type="text" placeholder="Enter movie name" id="movie-title">
+				<input autofocus type="text" placeholder="Enter movie name" id="movie-title" ng-change="postDataChange()" ng-model="input.yoursearch">
 			</label>
 			<button class="button button-small" ng-click="search()">
 				Submit
