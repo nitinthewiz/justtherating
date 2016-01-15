@@ -25,7 +25,8 @@
 		<ion-header-bar class="bar-calm item-input-inset">
 			<label class="item-input-wrapper">
 				<i class="icon ion-ios-search placeholder-icon"></i>
-				<input autofocus type="text" placeholder="Enter movie name" id="movie-title" ng-change="postDataChange()" ng-model="input.yoursearch">
+				<input autofocus type="text" placeholder="Enter movie name" id="movie-title" ng-change="postDataChange()" ng-model="theinput.yoursearch">
+				<a ng-if="theinput.yoursearch != ''" on-touch="resetText()"><i class="icon ion-ios-close placeholder-icon"></i></a>
 			</label>
 			<button class="button button-small" ng-click="search()">
 				Submit
@@ -38,16 +39,22 @@
 				
 			</div> -->
 			<ion-spinner icon="rippal" ng-if="showloader == 'yes'"></ion-spinner>
-			<div class="list mylist" ng-if="searchmovie == 'yes'" ng-repeat="item in items">
-				<div class="item item-thumbnail-left">
+			<div class="list card mylist" ng-if="searchmovie == 'yes'" ng-repeat="item in items">
+				<!-- <div style="background-image: url('{{ item.Poster }}'); background-repeat:no-repeat;background-size:100%;" class="item item-image"> -->
+				<div class="item item-image">
+					<img src="{{ item.Poster }}">
+					<h2>{{item.imdbRating}}</h2>
+					<!-- <h2>{{ item.Title }}</h2>
+					<p>{{ item.Year }} {{ item.Type }}<p>
+					<p>{{ item.genre }} {{item.runtime}}<p> -->
+				</div>
+				<!-- <div class="item item-thumbnail-left">
 					<img class="fit-thumbnail" src="{{ item.Poster }}">
-					 <!-- <strong class="float-right">{{item.imdbRating}}</strong> -->
 					<span class="mynote">{{item.imdbRating}}</span>
 					<h2>{{ item.Title }}</h2>
 					<p>{{ item.Year }} {{ item.Type }}<p>
 					<p>{{ item.genre }} {{item.runtime}}<p>
-					<!-- <span class="mynote">{{item.imdbRating}}</span> -->
-				</div>
+				</div> -->
 			</div>
 		</ion-content>  
 		<!-- Card End -->
