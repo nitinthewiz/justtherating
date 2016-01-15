@@ -1,0 +1,16 @@
+/* Empty. Add your own CSS if you like */
+
+.mylist{
+	margin-bottom: 0;
+}
+
+.mynote{
+	float: right;
+	font-size: 3em;
+	line-height: normal;
+}
+.fit-thumbnail{
+	object-fit: cover;
+	top:0 !important;
+	max-height: 100% !important;
+}
